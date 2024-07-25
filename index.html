@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="main.js" defer></script>
+    <meta name="Color-Scheme" content = "Dark">
+    <link rel="stylesheet" href="style.css">
+    <title>Document</title>
+</head>
+<body>
+    <canvas id="quadro"></canvas> <br>
+    <input type="range" id="rateChange" min="0.1" step="0.01" value="0.1" max="100" oninput="SlideInput(), DrawSpiral()">
+    <input type="text" id="rateChangeText" value="0.1" onblur="TextInput(), DrawSpiral()">
+    <p id="ratio">ratio = </p>
+</body>
+</html>
