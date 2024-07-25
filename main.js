@@ -10,7 +10,7 @@ let width = quadro.width
 let height = quadro.height
 
 let numerador = 0.1
-let ratio = ((1+Math.sqrt(5))/2)
+let ratio = ((1+5**0.5)*0.5)
 
 ctx.fillStyle = "#000"
 ctx.fillRect(0,0,width,height)
@@ -47,7 +47,7 @@ function DrawSpiral()
     let raio = 1
     ctx.fillStyle = "#000"
     ctx.fillRect(-width,-height,width*2,height*2)
-    for(let i = 0 ;i < 100*ratio; i+=rateChange)
+    for(let i = 0 ;i < 1000*ratio; i+=rateChange)
         {
             ctx.fillStyle = "#ffffff"
             ctx.fillRect(raio * Math.cos(i)-2,raio * Math.sin(i)-2,4,4)

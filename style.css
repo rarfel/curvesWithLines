@@ -1,5 +1,23 @@
-#quadro{
-    width: 650px;
-    height: 650px;
+body
+{
+    display: flex;
+}
+
+#quadro
+{
+    width: 80%;
+    height: 620px;
     border: 2px white solid;
+}
+@media (max-width:767px) /*1px menor que o tamanho "mesa digitalizadora" */
+{
+    body
+    {
+        display: grid;
+    }
+    #quadro
+    {
+        width: 100%;
+        height: 500px;
+    }
 }
