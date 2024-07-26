@@ -12,7 +12,7 @@ let height = quadro.height
 let isFoward = false
 let isBackward = false
 let divisor = 2.273
-let numerador = 0.1
+let numerador = 0.02
 let ratio = ((1+5**0.5)*0.5)
 
 ctx.fillStyle = "#000"
