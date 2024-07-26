@@ -17,11 +17,11 @@
             <input type="range" id="rateChange" min="0.1" step="0.01" value="0.1" max="56.55" oninput="SlideInput(), DrawSpiral()">
         </div>
         <div id="ratioAutoplay">
-            <button type="button" id="previous" onclick="Previous()">Previous</button>
             <button type="button" id="play" onclick="Backward()">Backwards</button>
+            <button type="button" id="previous" onclick="Previous()">Previous</button>
             <button type="button" id="stop" onclick="Stop()">Stop</button>
-            <button type="button" id="play" onclick="Foward()">Foward</button>
             <button type="button" id="next" onclick="Next()">Next</button>
+            <button type="button" id="play" onclick="Foward()">Foward</button>
         </div>
         <div id="toggleColor">
             Color = <input type="checkbox" id="color" checked onchange="DrawSpiral()">

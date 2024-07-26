@@ -13,7 +13,7 @@ body
 {
     display: flex;
     border: 1px solid white;
-    width: 80%;
+    width:fit-content;
     padding: .2rem;
     gap: .2rem;
 }
