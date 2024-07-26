@@ -13,13 +13,18 @@ body
 {
     display: flex;
     border: 1px solid white;
-    width:fit-content;
+    min-width:auto;
     padding: .2rem;
     gap: .2rem;
 }
 #ratioAutoplay
 {
-    gap: 2rem;
+    gap: .5rem;
+}
+button
+{
+    background-color: black;
+
 }
 @media (max-width:767px) /*1px menor que o tamanho "mesa digitalizadora" */
 {

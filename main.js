@@ -50,6 +50,7 @@ function Next()
     {
         aux=56.55
         isFoward = false
+        isBackward = true
     }
     document.querySelector("#rateChangeText").value = aux
     TextInput()
@@ -63,7 +64,8 @@ function Previous()
     if(aux<= 0.1)
     {
         aux=0.1
-        isFoward = false
+        isBackward = false
+        isFoward = true
     }
     document.querySelector("#rateChangeText").value = aux
     TextInput()
