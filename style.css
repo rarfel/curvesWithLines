@@ -22,13 +22,9 @@ body
     display: grid;
     gap: 0.5rem;
 }
-#ratioAutoplay
+.ratioAutoplay
 {
     gap: .5rem;
-}
-#toggleColor > input
-{
-    
 }
 button
 {

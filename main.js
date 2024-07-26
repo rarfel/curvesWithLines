@@ -11,6 +11,7 @@ let height = quadro.height
 
 let isFoward = false
 let isBackward = false
+let divisor = 2.273
 let numerador = 0.1
 let ratio = ((1+5**0.5)*0.5)
 
@@ -26,6 +27,12 @@ function DrawLine(x1,y1,x2,y2,lineColor)
     ctx.moveTo(x1,y1)
     ctx.lineTo(x2,y2)
     ctx.stroke()
+}
+
+function DivisorInput()
+{
+    let divisorInput = document.querySelector("#divisor").value
+    divisor = divisorInput
 }
 
 function TextInput()
@@ -46,9 +53,9 @@ function Next()
 {
     let aux = parseFloat(document.querySelector("#rateChangeText").value)
     aux+=0.01
-    if(aux>= 56.55)
+    if(aux>= 100)
     {
-        aux=56.55
+        aux=100
         isFoward = false
         isBackward = true
     }
@@ -61,9 +68,9 @@ function Previous()
 {
     let aux = parseFloat(document.querySelector("#rateChangeText").value)
     aux-=0.01
-    if(aux<= 0.1)
+    if(aux<= 0.01)
     {
-        aux=0.1
+        aux=0.01
         isBackward = false
         isFoward = true
     }
@@ -78,7 +85,7 @@ function Foward()
     isFoward = true
     setTimeout(()=>{
         Next()
-    },15)
+    },35)
 }
 
 function Stop()
@@ -93,12 +100,12 @@ function Backward()
     isBackward = true
     setTimeout(()=>{
         Previous()
-    },15)
+    },35)
 }
 
 function DrawSpiral()
 {
-    let rateChange = parseFloat(numerador)/9
+    let rateChange = parseFloat(numerador)/divisor
     let raio = 1
     let colorValue = 0
     let color = "#fff"
@@ -114,14 +121,8 @@ function DrawSpiral()
         raio += ratio
         colorValue+=2
     }
-    if(isFoward==true)
-    {
-        Foward()
-    }
-    if(isBackward==true)
-    {
-        Backward()
-    }
+    if(isFoward==true){Foward()}
+    if(isBackward==true){Backward()}
 }
 DrawSpiral()
 

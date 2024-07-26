@@ -7,29 +7,30 @@
     <script src="downloadCanvas.js" defer></script>
     <meta name="Color-Scheme" content = "Dark">
     <link rel="stylesheet" href="style.css">
-    <title>Document</title>
+    <title>Golden Ratio Experiment</title>
 </head>
 <body>
     <canvas id="quadro"></canvas> 
     <div class="inputs">
-        <div id="ratioInput">
-            Ratio = <input type="number" id="rateChangeText" value="0.1" onblur="TextInput(), DrawSpiral()">
-            <input type="range" id="rateChange" min="0.1" step="0.01" value="0.1" max="56.55" oninput="SlideInput(), DrawSpiral()">
+        <div class="ratioInput">
+            Ratio = <input type="number" id="rateChangeText" value="0.01" step="0.01" onchange="TextInput(), DrawSpiral()">
+            <input type="range" id="rateChange" min="0.1" step="0.01" value="0.1" max="100" oninput="SlideInput(), DrawSpiral()">
+            Divisor = <input type="number" id="divisor" value="2.273" step="0.001" onchange="DivisorInput(), DrawSpiral()">
         </div>
-        <div id="ratioAutoplay">
+        <div class="ratioAutoplay">
             <button type="button" id="play" onclick="Backward()">Backwards</button>
             <button type="button" id="previous" onclick="Previous()">Previous</button>
             <button type="button" id="stop" onclick="Stop()">Stop</button>
             <button type="button" id="next" onclick="Next()">Next</button>
             <button type="button" id="play" onclick="Foward()">Foward</button>
         </div>
-        <div id="toggleColor">
+        <div class="toggleColor">
             Color = <input type="checkbox" id="color" checked onchange="DrawSpiral()">
         </div>
-        <div id="revolutionsInput">
+        <div class="revolutionsInput">
             Number of revolutions = <input type="number" id="revolutions" value="200" onchange="DrawSpiral()">
         </div>
-        <div id="downloadButton">
+        <div class="downloadButton">
             <button id="download">Download Image</button>
         </div>
     </div>
