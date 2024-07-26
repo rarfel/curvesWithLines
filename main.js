@@ -9,6 +9,8 @@ quadro.height = quadro.clientHeight
 let width = quadro.width
 let height = quadro.height
 
+let isFoward = false
+let isBackward = false
 let numerador = 0.1
 let ratio = ((1+5**0.5)*0.5)
 
@@ -16,9 +18,9 @@ ctx.fillStyle = "#000"
 ctx.fillRect(0,0,width,height)
 ctx.translate(width/2,height/2)
 
-function DrawLine(x1,y1,x2,y2)
+function DrawLine(x1,y1,x2,y2,lineColor)
 {
-    ctx.strokeStyle = "#fff"
+    ctx.strokeStyle = lineColor
     ctx.lineWidth = 1
     ctx.beginPath()
     ctx.moveTo(x1,y1)
@@ -40,19 +42,88 @@ function SlideInput()
     numerador = input
 }
 
+function Next()
+{
+    let aux = parseFloat(document.querySelector("#rateChangeText").value)
+    aux+=0.01
+    if(aux>= 56.55)
+    {
+        aux=56.55
+        isFoward = false
+    }
+    document.querySelector("#rateChangeText").value = aux
+    TextInput()
+    DrawSpiral()
+}
+
+function Previous()
+{
+    let aux = parseFloat(document.querySelector("#rateChangeText").value)
+    aux-=0.01
+    if(aux<= 0.1)
+    {
+        aux=0.1
+        isFoward = false
+    }
+    document.querySelector("#rateChangeText").value = aux
+    TextInput()
+    DrawSpiral()
+}
+
+function Foward()
+{
+    isBackward = false
+    isFoward = true
+    setTimeout(()=>{
+        Next()
+    },15)
+}
+
+function Stop()
+{
+    isFoward = false
+    isBackward = false
+}
+
+function Backward()
+{
+    isFoward = false
+    isBackward = true
+    setTimeout(()=>{
+        Previous()
+    },15)
+}
+
 function DrawSpiral()
 {
     let rateChange = parseFloat(numerador)/9
-    document.querySelector("#ratio").innerText = `ratio = ${parseFloat(numerador)}/9`
     let raio = 1
+    let colorValue = 0
+    let color = "#fff"
+    let revolutions = document.querySelector('#revolutions').value
     ctx.fillStyle = "#000"
     ctx.fillRect(-width,-height,width*2,height*2)
-    for(let i = 0 ;i < 1000*ratio; i+=rateChange)
-        {
-            ctx.fillStyle = "#ffffff"
-            ctx.fillRect(raio * Math.cos(i)-2,raio * Math.sin(i)-2,4,4)
-            DrawLine(raio * Math.cos(i),raio * Math.sin(i),raio * Math.cos(i+rateChange),raio * Math.sin(i+rateChange))
-            raio += ratio
+    for(let i = 0 ;i < revolutions*ratio; i+=rateChange)
+    {
+        color = document.querySelector('#color').checked == true ? `hsl(${colorValue},100%,50%)` : "#fff"
+        ctx.fillStyle = color
+        ctx.fillRect(raio * Math.cos(i)-1,raio * Math.sin(i)-1,2,2)
+        DrawLine(raio * Math.cos(i),raio * Math.sin(i),raio * Math.cos(i+rateChange),raio * Math.sin(i+rateChange),color)
+        raio += ratio
+        colorValue+=2
+    }
+    if(isFoward==true)
+    {
+        Foward()
+    }
+    if(isBackward==true)
+    {
+        Backward()
     }
 }
 DrawSpiral()
+
+document.addEventListener("keypress", e=>
+{
+    if(e.key == 'Enter'){DrawSpiral()}
+})

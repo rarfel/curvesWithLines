@@ -9,6 +9,18 @@ body
     height: 620px;
     border: 2px white solid;
 }
+.inputs > div
+{
+    display: flex;
+    border: 1px solid white;
+    width: 80%;
+    padding: .2rem;
+    gap: .2rem;
+}
+#ratioAutoplay
+{
+    gap: 2rem;
+}
 @media (max-width:767px) /*1px menor que o tamanho "mesa digitalizadora" */
 {
     body
