@@ -36,6 +36,19 @@ button
     display: grid;
     place-items: center;
 }
+a{
+    color: crimson;
+    text-decoration: none;
+    background-image: linear-gradient(90deg,aquamarine,red);
+    background-size: 0% 3px;
+    background-repeat: no-repeat;
+    background-position: left bottom;
+    transition: background-size 300ms ease;
+}
+a:hover{
+    color: aquamarine;
+    background-size: 100% 3px;
+}
 @media (max-width:767px) /*1px menor que o tamanho "mesa digitalizadora" */
 {
     body
