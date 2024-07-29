@@ -109,6 +109,7 @@ function DrawSpiral()
     let raio = 1
     let colorValue = 0
     let color = "#fff"
+    let invertColor
     let revolutions = document.querySelector('#revolutions').value
     ctx.fillStyle = "#000"
     ctx.fillRect(-width,-height,width*2,height*2)
@@ -119,7 +120,7 @@ function DrawSpiral()
         ctx.fillRect(raio * Math.cos(i)-1,raio * Math.sin(i)-1,2,2)
         DrawLine(raio * Math.cos(i),raio * Math.sin(i),raio * Math.cos(i+rateChange),raio * Math.sin(i+rateChange),color)
         raio += ratio
-        colorValue+=2
+        invertColor = document.querySelector('#invertColor').checked == true ? colorValue-=2: colorValue+=2
     }
     if(isFoward==true){Foward()}
     if(isBackward==true){Backward()}
